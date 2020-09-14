@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>块级作用域</title>
+</head>
+<body>
+  <button>按钮0</button>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+
+  <script>
+    // ES5的var没有块级作用域(if/for)
+    // ES6的let/const有块级作用域(if/for)
+    // ES5之前if和for都没有块级用域的概念，所以很多时候必须借助函数function的作用域来解决应用外面变量的问题
+    
+    // ES6使用let/const
+    const btns = document.getElementsByTagName("button")
+    for (let i = 0; i < btns.length; i++) {   // 此处用var的话，每次打印都是5
+      btns[i].addEventListener('click',function (param) {
+        console.log("第"+ i + "个按钮被点击了");
+      })
+    }
+
+  </script>
+</body>
+</html> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象字面量的增强写法</title>
+</head>
+<body>
+  <script>
+    const name = 'aaaa'
+    const age = 18
+    // es5
+    // const user = {
+    //   name: name,
+    //   age: age
+    // }
+    // es6
+    const user = {
+      name,
+      age
+    }
+    console.log(user)
+
+    // es5
+    const obj = {
+      run: function(){
+        console.log('---run----')
+      }
+    }
+    // es6
+    const obj = {
+      run(){
+        console.log('---run---')
+      }
+    }
+  </script>
+</body>
+</html>

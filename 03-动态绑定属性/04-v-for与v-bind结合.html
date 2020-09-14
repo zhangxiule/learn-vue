@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>v-for与v-bind结合</title>
+		<style>
+			.active{
+				color: red;
+			}
+		</style>
+</head>
+<body>
+	<div id="app">
+		<ul v-for="(item, index) in movies">
+			<li>{{index}}-{{item}}--{{item.id}}</li>
+		</ul>
+	</div>
+	<script src="../js/vue.js"></script>
+	<script>
+		const app = new Vue({
+			el: "#app",
+			data: {
+				movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人']
+			}
+		})
+	</script>
+</body>
+</html>

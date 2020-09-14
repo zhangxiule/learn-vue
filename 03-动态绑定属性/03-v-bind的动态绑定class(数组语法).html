@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind动态绑定class(数组用法)</title>
+</head>
+<body>
+  <div id="app">
+		<!-- 数组里加上单引号当成字符串 -->
+		<h2 class="title" :class="['active']">{{message}}</h2>
+		<!-- 数组里不加单引号当成变量 -->
+		<h2 class="title" :class=[active]>{{message}}</h2>
+		<h2 class="title" :class="getClasses()">{{message}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+		const app = new Vue({
+			el: "#app",
+			data: {
+				message: "你好啊",
+				active: "aaa",
+				line: "bbb"
+			},
+			methods:{
+				getClasses(){
+					return [this.active, this.line]
+				}
+			}
+		})
+  </script>
+</body>
+</html>

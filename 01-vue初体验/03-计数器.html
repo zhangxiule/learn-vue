@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.js"></script>
+    <title>vue计数器</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>当前计数：{{count}}</h2>
+    <button v-on:click="add">+</button>   // 同下行表达效果一样
+    <button @click="sub">-</button>      // v-on可以简写为@
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+          count: 0
+      },
+      methods:{
+        add() {
+          console.log('add...')
+          this.count++
+        },
+        sub:function(){
+          console.log('sub...')
+          this.count--
+        }
+      }
+    })
+  </script>
+</body>
+</html>

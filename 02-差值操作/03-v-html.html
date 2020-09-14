@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-html指令</title>
+</head>
+<body>
+  <div id="app">
+    <h2>不使用html</h2>
+    <h2>{{url}}</h2>
+    <h2>使用html，直接插入html</h2>
+    <h2 v-html="url"></h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: "你好啊",
+        url: "<a href=http://www.baidu.com>百度一下</a>"
+      }
+    })
+  </script>
+</body>
+</html>
