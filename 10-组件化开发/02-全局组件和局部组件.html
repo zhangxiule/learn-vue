@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全局组件和局部组件</title>
+</head>
+<body>
+  <div id="app1">
+    <!-- 3. 使用组件 -->
+    <my-cpn></my-cpn>
+    <cpnc></cpnc>
+  </div>
+
+  <div id="app2">
+    <!-- 4. 使用组件 -->
+    <my-cpn></my-cpn>
+    <!-- cpnc组件是在app1中注册的，所以在app2中无法加载 -->
+    <!-- <cpnc></cpnc> --> 
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    // 1.创建组件构造器对象
+    const cpnC = Vue.extend({
+      template: `
+        <div>
+          <h2>标题</h2>
+          <p>你好啊</p>
+          <p>李银河</p>
+        </div>`
+    })
+    // 2.注册组件-全局
+    Vue.component('my-cpn', cpnC)
+
+    const app1 = new Vue({
+      el: "#app1",
+      components: {
+        cpnc: cpnC   //注册组件-局部
+      }
+    })
+
+    const app2 = new Vue({
+      el: "#app2",
+      // components: {
+      //   cpnc: cpnC   //注册组件-局部
+      // }
+    })
+  </script>
+
+</body>
+</html>

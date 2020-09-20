@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组的响应式方法</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="btn1">btn1</button>
+    <button @click="btn2">btn2</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data:{
+        letters:['v', 'a', 'b', 'c', 'd', 'e']
+      },
+      methods:{
+        btn1(){
+          // 1. 在最后添加元素，可一次性添加多个
+          // this.letters.push('f', 'g')
+          // 2.删除最后一个元素
+          // this.letters.pop()
+          // 3.删除第一个元素
+          // this.letters.shift()
+          // 4.在最前面添加元素,可一次性添加多个
+          // this.letters.unshift('aaa', 'bbb')
+          // 5.splice可删除/插入/替换元素
+          // this.letters.splice(1, 1)  //在索引为1的地方删除1个元素，若第二个参数不传，则删除其后所有元素
+          // this.letters.splice(1,1,'aaa','bbb') //在索引为1的后面删除1个元素，添加'aaa','bbb'
+          // 6. sort排序
+          // this.letters.sort()
+          // 7.reverse反转
+          this.letters.reverse()
+        },
+        btn2(){
+          //非响应式
+          console.log('修改第一个元素')
+          this.letters[0]='m'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

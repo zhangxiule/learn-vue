@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-if的使用</title>
+</head>
+<body>
+  <div id="app">
+    <h2 v-if="isShow">isShow is true 显示本内容</h2>
+    <h1 v-else>isShow is false 显示本内容</h1>
+    <div v-if="score>=90">优秀</div>
+    <div v-else-if="score>=60">良好</div>
+    <div v-else="score<60">不及格</div>
+    <h1>{{grade}}</h1>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        isShow: true,
+        score: 62
+      },
+      computed:{
+        grade(){
+          let showGrage = ""
+          if(this.score>90){
+            showGrage = "优秀"
+          }else if(this.score>=60){
+            showGrage = "良好"
+          }else{
+            showGrage = "及格"
+          }
+          return showGrage
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>练习-点击某项变红</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2 v-for="(item, index) in movies" @click="clickItem(index)" :class="{'active': currentIndex===index}">{{index}}-{{item}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        movies: ["花木兰", "小妇人", "荞麦疯长", "爱在黎明破晓时", "遇见你之前"],
+        currentIndex: 0
+      },
+      methods:{
+        clickItem(index){
+          this.currentIndex=index
+        }
+      }
+    })
+  </script>
+</body>
+</html>
