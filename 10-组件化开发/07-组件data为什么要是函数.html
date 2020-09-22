@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件数据存放问题</title>
+</head>
+<body>
+  <div id="app">
+    <h2>data不使用函数</h2>
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+
+    <h2>data使用函数</h2>
+    <cpn2></cpn2>
+    <cpn2></cpn2>
+  </div>
+
+  <template id="cpn1">
+    <div>
+      <button @click="count--">-</button>
+      {{count}}
+      <button @click="count++">+</button>
+    </div>
+  </template>
+  <template id="cpn2">
+    <div>
+      <button @click="count--">-</button>
+      {{count}}
+      <button @click="count++">+</button>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const obj = {
+      count: 0
+    }
+    const app = new Vue({
+      el: "#app",
+      components: {
+        cpn1: {
+          template: "#cpn1",
+          data(){    
+            return obj;   //每次调用的是同一个obj
+          }
+        },
+        cpn2: {
+          template: "#cpn2",
+          data(){
+            return {
+              count: 0   //每次使用调用一次函数，互不冲突
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
