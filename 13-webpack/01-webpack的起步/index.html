@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>webpack入门</title>
+</head>
+<body>
+  <h2>看控制台console输出</h2>
+  <!-- webpack4需要加 -o -->
+  <!-- 在配置警报
+  “模式”选项尚未设置，webpack将退回到“生产版”。将“mode”选项设置为“development”或“production”，以便为每个环境启用默认设置。
+  您还可以将其设置为“none”来禁用任何默认行为。了解更多信息:https://webpack.js.org/configuration/mode/
+  -->
+  <!-- 意思就是你没用配置文件打包会将生成的是生产版的代码(即不留空格，全是一行代码没注释和警告)，学习所用可以用开发版(代码有注释和警告等) -->
+  <!-- 使用配置文件打包，在项目根目录上创建一个webpack.config.js文件，然后在该文件里module.exports 里设置：mode:‘development’ 这个参数，即打包成开发版就好了。 -->
+
+  <!-- 3.新建一个indexhtml文件并使用 webpack ./src/main.js -o ./dist/bundle.js webpack3使用此命令 -->
+  <!-- 4.引用webpack打包后的js文件 -->
+  <script src="./dist/bundle.js"></script>
+</body>
+</html>

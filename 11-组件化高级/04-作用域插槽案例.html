@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>作用域插槽案例</title>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+      <!-- 2.5以下必须使用template -->
+      <template slot-scope="slot">
+        <!-- <span v-for="item in slot.data">{{item}}-</span> -->
+        <span>{{slot.data.join('-')}}</span>
+      </template>
+    </cpn>
+    <cpn>
+      <!-- 2.5以下必须使用template -->
+      <template slot-scope="slot">
+        <!-- <span v-for="item in slot.data">{{item}}*</span> -->
+        <span>{{slot.data.join('*')}}</span>
+      </template>
+    </cpn>
+  </div>
+  
+  <template id="cpn">
+    <div>
+      <slot :data="pLanguage">
+        <ul>
+          <li v-for="item in pLanguage">{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const cpn = {
+      template: "#cpn",
+      data() {
+        return {
+          pLanguage: ['Java', 'Node', 'Python', 'Go']
+        }
+      }
+    }
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        cpn
+      }
+    })
+  </script>
+</body>
+</html>
